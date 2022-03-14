@@ -6,6 +6,22 @@
     tools:context=".WeatherActivity"
     android:background="@color/design_default_color_primary">
 
+    <!--帧布局是最为简单的一种布局，
+    该布局为每个加入其中的控件创建一个空白区域，
+    称为一帧，每个控件占据一帧。采用帧布局时，
+    所有控件都默认显示在屏幕左上角，并按照先后放入的顺序重叠摆放，
+    先放入的将会在最底层，后放入的控件显示在最顶层。帧布局使用于图层设计-->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop" />
+
+
+    <!--注意：ScrollView的子元素只能有一个，所以得增加一个LinearLayout布局，
+    把其他按键放在这个LinearLayout中，那么ScrollView的子元素就只有一个LinearLayout了，
+    而LinearLayout的子元素不限制-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,15 +29,23 @@
         android:scrollbars="none"
         android:overScrollMode="never">
 
-        <include layout="@layout/title" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
 
-        <include layout="@layout/now" />
+            <include layout="@layout/title" />
 
-        <include layout="@layout/forecast" />
+            <include layout="@layout/now" />
 
-        <include layout="@layout/aqi" />
+            <include layout="@layout/forecast" />
 
-        <include layout="@layout/suggestion" />
+            <include layout="@layout/aqi" />
+
+            <include layout="@layout/suggestion" />
+
+        </LinearLayout>
 
 
     </ScrollView>
