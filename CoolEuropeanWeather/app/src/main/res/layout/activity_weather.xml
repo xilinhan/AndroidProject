@@ -19,35 +19,55 @@
         android:scaleType="centerCrop" />
 
 
-    <!--注意：ScrollView的子元素只能有一个，所以得增加一个LinearLayout布局，
-    把其他按键放在这个LinearLayout中，那么ScrollView的子元素就只有一个LinearLayout了，
-    而LinearLayout的子元素不限制-->
-    <ScrollView
+    <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/weather_layout"
-        android:scrollbars="none"
-        android:overScrollMode="never">
+        android:id="@+id/drawer_layout">
 
-        <LinearLayout
-            android:orientation="vertical"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--注意：ScrollView的子元素只能有一个，所以得增加一个LinearLayout布局，
+        把其他按键放在这个LinearLayout中，那么ScrollView的子元素就只有一个LinearLayout了，
+        而LinearLayout的子元素不限制-->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/weather_layout"
+                android:scrollbars="none"
+                android:overScrollMode="never">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true">
+
+                    <include layout="@layout/title" />
+
+                    <include layout="@layout/now" />
+
+                    <include layout="@layout/forecast" />
+
+                    <include layout="@layout/aqi" />
+
+                    <include layout="@layout/suggestion" />
+
+                </LinearLayout>
+
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <fragment
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
+            android:layout_height="match_parent"
+            android:id="@+id/choose_area_fragment"
+            android:name="com.example.coolweather.ChooseAreaFragment"
+            android:layout_gravity="start" />
 
-            <include layout="@layout/title" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 
-            <include layout="@layout/now" />
-
-            <include layout="@layout/forecast" />
-
-            <include layout="@layout/aqi" />
-
-            <include layout="@layout/suggestion" />
-
-        </LinearLayout>
-
-
-    </ScrollView>
 
 </FrameLayout>
