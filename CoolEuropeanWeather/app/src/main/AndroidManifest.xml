@@ -16,7 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoolWeather"
         tools:targetApi="n">
-        <activity android:name=".WeatherActivity"></activity>
+        <activity android:name=".draw.my_test_view"></activity>
+
+        <service
+            android:name=".service.AutoUpdateService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".WeatherActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
