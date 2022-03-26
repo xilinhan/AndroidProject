@@ -1,0 +1,10 @@
+1. Bitmap类是图像处理的重要类之一。可以获取图像文件信息，进行图像的剪切、旋转、缩放等操作，并且可以指定格式保存图像文件。
+2. Bitmap.Config 枚举变量，位图位数越高代表其可以存储的颜色信息越多，图像越逼真，但是占用的内存越大
+    public static final Bitmap.config ALPHA_8 表示8为Alpha位图，每个像素占用1byte内存
+    public static final Bitmap.Config ARGB_4444 //代表16位ARGB位图  每个像素占用2byte内存
+    public static final Bitmap.Config ARGB_8888 //代表32位ARGB位图  每个像素占用4byte内存
+    public static final Bitmap.Config RGB_565 //代表8位RGB位图          每个像素占用2byte内存
+
+    一张图片（Bitmap）占用的内存主要和以下几个因素有关：图片长度、图片宽度、单位像素占用的字节数
+    内存 = 图片长度 * 图片宽度 * 单位像素占用的字节数
+
