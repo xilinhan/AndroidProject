@@ -7,51 +7,11 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.example.qyz6.MyView
-        android:id="@+id/myView2"
-        android:layout_weight="5"
+    <com.example.qyz6.multiLayer
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="1"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="50dp"
-        android:background="@drawable/shape_redius"
-        android:text="@string/hello"
-        android:textSize="30sp"
-        android:gravity="center" />
-
-    <RadioButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:button="@null"
-        android:text="@string/first_select"
-        android:textSize="20sp"
-        android:textColor="@drawable/text_select"
-        android:background="@drawable/background_select"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="20dp"
-        android:layout_marginBottom="15dp"
-        android:paddingStart="20dp" />
-
-    <RadioButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:button="@null"
-        android:text="@string/second_select"
-        android:textSize="20sp"
-        android:textColor="@drawable/text_select"
-        android:background="@drawable/background_select"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="20dp"
-        android:layout_marginBottom="15dp"
-        android:paddingStart="20dp" />
 
 
 </LinearLayout>
