@@ -1,14 +1,19 @@
 package com.example.androidscroll;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.customview.widget.ViewDragHelper;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     int[] screenLocation = new int[2];
     int[] windowLocation = new int[2];
     private Button mButton;
+    private LinearLayout mLinearLayout;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +77,28 @@ public class MainActivity extends AppCompatActivity {
             而getLocationInWindow()是相对于父窗口的左上角，此时父窗口不再是页面的窗口了，
             而是Dialog的窗口，故和getLocationOnScreen()不再一致；
          */
+
+        //为视图，实际上是布局文件，添加触控事件，首先明确触控事件为Touch，点击事件为click
+        mLinearLayout.setOnTouchListener((v, event) -> {
+            @SuppressLint("ClickableViewAccessibility") int action = event.getAction();
+            switch (action){
+                case MotionEvent.ACTION_DOWN:
+                    float x = event.getX();
+                    float y = event.getY();
+                    float rawX = event.getRawX();
+                    float rawY = event.getRawY();
+                    mLinearLayout.performClick();
+                    Log.i("MainActivity", "event.getX()="+x+","+"event.getY()="+y+","+"event.getRawX()="+rawX+"event.getRawY()="+rawY);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    mLinearLayout.performClick();
+                    break;
+
+            }
+            return false;
+        });
+
+
 
     }
 }

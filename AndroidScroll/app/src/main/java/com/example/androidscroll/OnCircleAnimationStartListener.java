@@ -1,6 +1,10 @@
-package com.example.androidscroll;/**
+package com.example.androidscroll;
+
+/**
  * @author xilinhan
- * @description: 
+ * @description:
  * @date :2022/3/27 23:17
- */public interface OnCircleAnimationStartListener {
+ */
+public interface OnCircleAnimationStartListener {
+    void onCircleAnimationStart();
 }
